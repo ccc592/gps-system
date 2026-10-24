@@ -1,3 +1,5 @@
+> **Fork note:** this fork adds a Hermes Agent edition — see [HERMES.md](HERMES.md).
+
 # GPS System
 
 **An evidence-based goal system run by Claude Code.** Goal → Plan → System, with a

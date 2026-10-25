@@ -47,7 +47,10 @@ Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
 2. Goal stalled 2+ weeks → force a decision: recommit (with what change?), shrink,
    or park (park frees a slot only at reset). Use `life-coach` → "Review after
    noncompletion" before deciding.
-3. **Wake ramp**: if last week's average wake was within 30 min of
+3. **Wake ramp**: if an active goal file has a week-by-week sleep/wake table (for
+   example a sleep goal), that table sets next week's `wake_target` and
+   `sleep_target`; the ramp below is only the fallback. Otherwise: if last week's
+   average wake was within 30 min of
    `config.day.wake_target` and `wake_target` is later than `wake_goal`, propose
    moving it earlier by `wake_ramp_minutes_per_week` (shift `sleep_target` the same
    amount only if he agrees). If he missed the target by more than 30 min, keep it

@@ -12,7 +12,7 @@ metadata:
 Runs every
 `config.checkpoint_every_weeks` cycle weeks (default 4), right after that Sunday's
 weekly prep. Load `gps-core` first. Read the period's weekly reviews, tracking files,
-scorecard, goal files, and `aw/` summaries if present.
+scorecard, goal files, `changes.md` for the period, and `aw/` summaries if present.
 
 ## Steps
 

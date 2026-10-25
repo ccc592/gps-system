@@ -7,8 +7,8 @@ description: 12-week GPS cycle reset, in chat. Scores the closing cycle, harvest
 
 Interactive, in chat (Hermes edition) — run at week 12 (the week-12 checkpoint
 reminds the owner). Load `gps-core` first; read `gps-core/references/method.md`,
-`~/coach/config.json`, the cycle's reviews, scorecard, goal files, `vision.md`, and
-`~/coach/parking-lot.md`.
+`~/coach/config.json`, the cycle's reviews, scorecard, goal files, `changes.md`,
+`vision.md`, and `~/coach/parking-lot.md`.
 
 ## Steps
 

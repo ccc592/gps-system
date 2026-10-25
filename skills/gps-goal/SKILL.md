@@ -1,6 +1,6 @@
 ---
 name: gps-goal
-description: Revise or replace one existing GPS goal mid-cycle, in chat ('改目标', '换目标'). Edit a goal's target, milestones, why, if-thens, or operating procedure — rewritten in place with the owner's OK; or retire a goal and stand up a replacement in its slot, gated by a drift check. The guarded alternative to waiting for /gps-reset.
+description: Revise or replace one existing GPS goal mid-cycle, in chat ('改目标', '换目标'). Edit a goal's target, milestones, why, if-thens, or operating procedure — logged in ~/coach/changes.md; or retire a goal and stand up a replacement in its slot, gated by a drift check. The guarded alternative to waiting for /gps-reset.
 ---
 
 # GPS Goal — revise or replace one goal
@@ -8,10 +8,12 @@ description: Revise or replace one existing GPS goal mid-cycle, in chat ('改目
 Interactive, in chat (Hermes edition) — ask in plain conversation, one decision at a
 time. Load `gps-core` first (tone, layout, rules) and read
 `gps-core/references/method.md`, `~/coach/config.json`, the active goal files in the
-current cycle dir, `~/coach/goals/anti-goals.md`, and `~/coach/profile.md`.
+current cycle dir, `~/coach/goals/anti-goals.md`, `~/coach/profile.md`, and
+`~/coach/changes.md` (what was already changed and why — don't undo a recent change
+without a new reason).
 
-**Two hard rules:** never change or delete a goal without the owner's OK in chat; never
-exceed 3 active goals.
+**Two hard rules:** every change gets its line in `changes.md` (`gps-core` rule 5);
+never exceed 3 active goals.
 
 ## Step 1 — pick the goal and the mode
 
@@ -29,8 +31,8 @@ List the active goals; ask which one. Then ask: **revise** (edit this goal in pl
      unit of work, add or remove the `## Operating procedure` accordingly (fill it, or
      delete it — never leave it blank; no unused circuitry).
    - Don't quietly *expand* scope to dodge a hard week — if that's what's happening, name it.
-4. **Rewrite in place**: the goal file shows only the new version, with no change note
-   (`gps-core` rule 5).
+4. **Rewrite and log**: the goal file shows only the new version; add the line to
+   `changes.md` (`gps-core` rule 5).
 
 ## B — Replace (retire + new)
 
@@ -41,7 +43,7 @@ List the active goals; ask which one. Then ask: **revise** (edit this goal in pl
    new idea. If they hesitate, offer `park this idea: <one line>` and stop.
 3. **Close the outgoing goal honestly — never hard-delete.** Score what actually got
    done, set its frontmatter `status:` to `done` / `missed` / `dropped`, harvest one
-   lesson into the file (the lesson itself, not the story of the change). A
+   lesson into the file, and log the retirement + reason in `changes.md`. A
    non-active status frees the slot (keeping active goals ≤ 3).
 4. **Stand up the replacement** in the freed slot via `gps-core/templates/goal-template.md`:
    specific measurable outcome (learning-goal override for novel work), identity why,

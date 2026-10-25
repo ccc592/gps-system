@@ -34,6 +34,7 @@ these rules. Read `references/method.md` before changing any rule.
 | `vision.md` | long-range direction and the current annual plan (from onboarding discovery) |
 | `goals/anti-goals.md` | standing guardrails, checked at every ritual |
 | `goals/<cycle>/g<N>-<slug>.md` | active goals from `templates/goal-template.md`; `<cycle>` = `C<start-date>` e.g. `C2026-10-26` |
+| `changes.md` | change log for goals, anti-goals and `config.day`/partner: one line per change. Read only by `gps-weekly`, `gps-monthly`, `gps-goal`, `gps-reset` — daily runs skip it |
 | `parking-lot.md` | ideas that are not active goals; triaged only at reset |
 | `tracking/YYYY-MM.md` | append-only daily log, one line per day (format below) |
 | `tracking/scorecard.md` | current cycle: weekly % per goal + anti row |
@@ -96,11 +97,13 @@ evidence sets a mark; never guess `✓`.
    cover the owner's obstacle classes in `profile.md`.
 4. **Process over outcome.** Daily and weekly targets are behaviours the owner fully
    controls (one 90-minute block on X), not results.
-5. **Shrinking is allowed, silent drift is not.** Every change to a goal is said to
-   the owner in chat and applied only with his OK. Then rewrite the file in place:
-   goal, profile, plan and memory text always describe only the current version — no
-   change log, no edit dates, no "was X, now Y", and never restate a replaced rule,
-   number or wrong fact, not even to say it is wrong. The daily backup keeps history.
+5. **Shrinking is allowed, silent drift is not.** Change goals directly when the
+   conversation calls for it — no approval step — and tell him the change in one line.
+   Every change gets one line in `changes.md`:
+   `YYYY-MM-DD · g<N>/anti/config · 原来 X → 现在 Y · 原因`.
+   Goal, anti-goal, profile and plan files show only the current version; the history
+   lives in `changes.md` alone. Corrections of miscounted data are fixed in place and
+   not logged.
 6. **Cycle = 12 weeks, checkpoint every 4 weeks.** At a checkpoint the *route* may
    change (milestones, procedure, schedule); the goals do not — that waits for
    `gps-reset` (or the guarded `gps-goal` replace path).

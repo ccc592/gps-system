@@ -11,7 +11,8 @@ metadata:
 
 Load `gps-core` first (tone, layout, intensity). Read `config.json`, active goal
 files, `goals/anti-goals.md`, this and last month's `tracking/` files, the week's
-`plans/*.json`, `aw/*.json` for the week (if any), and last week's review.
+`plans/*.json`, `aw/*.json` for the week (if any), this week's lines in
+`changes.md`, and last week's review.
 
 Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
 
@@ -42,8 +43,9 @@ Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
 ## Mode B — completion in chat (the owner answers the summons)
 
 1. Walk the draft in 3–5 short exchanges: reconcile `?` days, confirm/contest
-   verdicts, apply agreed goal changes by rewriting the goal file in place (shrinking
-   is allowed, silent drift is not — `gps-core` rule 5), set next week's if-then.
+   verdicts, apply goal changes and log each in `changes.md` (shrinking is allowed,
+   silent drift is not — `gps-core` rule 5), set next week's if-then. Name any
+   change this week that lowered a bar.
 2. Goal stalled 2+ weeks → force a decision: recommit (with what change?), shrink,
    or park (park frees a slot only at reset). Use `life-coach` → "Review after
    noncompletion" before deciding.

@@ -16,7 +16,8 @@ Events (each sent at most once per coach day):
     bedtime         plan.bedtime_nudge (default sleep target - 30 min)
 
 A coach day runs until 04:00 the next morning; clock times before 04:00 belong to
-the previous date. Stdlib only. Set COACH_HOME / COACH_NOW (ISO time) to test.
+the previous date. Stdlib only. Set COACH_NOW (ISO time) to test: that is a dry
+run and never records events as sent (COACH_HOME points it at another data dir).
 """
 import json
 import os
@@ -111,13 +112,14 @@ def main():
 
     due.sort(key=lambda x: x[0])
     at, key, ctx = due[0]
-    sent.add(key)
-    tick[coach_day] = sorted(sent)
-    for old in sorted(tick)[:-7]:  # keep a week of dedupe state
-        tick.pop(old, None)
-    tmp = state_path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(tick, ensure_ascii=False), encoding="utf-8")
-    tmp.replace(state_path)
+    if not os.environ.get("COACH_NOW"):  # simulated time = dry run, keep real state
+        sent.add(key)
+        tick[coach_day] = sorted(sent)
+        for old in sorted(tick)[:-7]:  # keep a week of dedupe state
+            tick.pop(old, None)
+        tmp = state_path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(tick, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(state_path)
 
     context = {
         "event": key.split(":")[0],

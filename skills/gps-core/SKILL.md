@@ -40,7 +40,7 @@ these rules. Read `references/method.md` before changing any rule.
 | `plans/YYYY-MM-DD.md` | the day's time-blocked plan (written by chronoplanner the evening before) |
 | `reviews/{weekly,checkpoint,cycle}/` | weekly reviews, 4-week checkpoints, cycle resets |
 | `state.json` | coaching state: intensity level, streaks, last ritual timestamps |
-| `aw/YYYY-MM-DD.json` | desktop ActivityWatch summaries (pushed every 30 min; see `activitywatch` skill, remote coach mode) |
+| `aw/YYYY-MM-DD.json` | desktop ActivityWatch summaries, one per coach day 04:00–04:00, time at the computer only (pushed every 30 min; see `activitywatch` skill, remote coach mode) |
 
 Dates are absolute (`2026-10-26`), times are 24h local (`Asia/Taipei`). Never
 write relative dates into files.

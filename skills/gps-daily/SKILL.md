@@ -67,9 +67,10 @@ One line, `【开始】`: block title, end time, "手机放远一点". Nothing e
 
 ## Mode: check-in (scheduled, a deep block just ended)
 
-1. Read the latest `~/coach/aw/<day>.json` (see `activitywatch`, remote coach mode).
-   If fresh, compute what you can for the block window: productive vs distracting
-   categories, top distracting sites. If stale or missing, say "没有电脑数据".
+1. Read the latest `~/coach/aw/<day>.json` (see `activitywatch`, remote coach mode;
+   `<day>` is the coach day, 04:00–04:00). If fresh, sum the `summary.slots[]` inside
+   the block window: minutes at the computer, productive vs distracting minutes, and
+   the `top_distracting` sites. If stale or missing, say "没有电脑数据".
 2. Send `【打卡】` in ≤4 lines: the block, what the desktop data suggests (one line,
    facts), and one question: done / partial / not started?
 3. Do not diagnose yet; a short answer is enough. When he answers (chat turn), mark

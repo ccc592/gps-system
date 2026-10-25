@@ -19,8 +19,8 @@ Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
 
 1. **Compute the week** per goal: % of planned deep blocks done (plan JSON statuses
    + tracking marks), milestone status vs dates, days untouched. Deep hours total vs
-   last week. Anti-goal violations, dated. Desktop: average productivity score and
-   the top 2 distracting sites with weekly hours (only if `aw/` files exist). Phone:
+   last week. Anti-goal violations, dated. Desktop: average `totals.productive_pct`,
+   total `distracting_min`, and the top 2 distracting sites with weekly hours (only if `aw/` files exist). Phone:
    weekly average from the evening reports (if reported). Wake: average actual wake
    time vs target.
    - **Machine check**: a goal reached by repeating a unit of work without a filled

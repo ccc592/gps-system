@@ -44,7 +44,10 @@ belong to the same coach day.
 
 ## Mode: wake — owner says he is up ("起床了", "醒了", "早")
 
-1. Record `wake_actual` (now) in today's plan JSON and in `state.json`.
+1. Record `wake_actual` (now) in today's plan JSON and in `state.json`. Read last
+   night from the Apple Watch (`gps-core` → Apple Watch data): asleep time, wake
+   time, total sleep, split sleep yes/no. If the watch says he woke much earlier
+   than now, record the watch wake time and mention the gap in one line.
 2. No plan for today (evening review was skipped)? Load `chronoplanner` and make one
    now — short, using `config.day` defaults and the goals' process targets.
 3. Woke later than `wake_planned`? Shift the not-yet-started blocks by the delay
@@ -52,7 +55,8 @@ belong to the same coach day.
    longer fits, drop the lowest-priority shallow block first, never the first deep
    block. Update the calendar events if calendar is enabled (chronoplanner →
    Calendar sync).
-4. Reply `【今日计划】` in ≤8 lines: wake time vs plan (one fact, no lecture), the
+4. Reply `【今日计划】` in ≤8 lines: last night's sleep in one line (watch), wake time
+   vs plan (one fact, no lecture), the
    blocks with times, the single lead action per goal, one anti-goal reminder for
    today (e.g. "深度块前 60 分钟不碰短视频"). End with nothing else.
 
@@ -90,6 +94,7 @@ send only the changed part of the day. Log one `note:` for the evening review.
 Phase A — the scheduled message (≤6 lines):
 - Today in facts: blocks planned vs done (from the plan JSON + replies), desktop
   summary for the day (productive hours, top distracting site + minutes).
+- Today's workout from the watch if there was one (type, minutes), one line.
 - Ask for: (1) any block he hasn't reported, (2) phone screen time — a screenshot or
   two numbers (total, top app), (3) one line: what got in the way / what worked,
   (4) anything fixed tomorrow (appointments).
@@ -102,6 +107,7 @@ Phase B — when he answers (chat turn):
    itself create resistance?). One or two questions, not an interrogation. If the
    desktop data shows feeds during a block, say it plainly once.
 3. **Write the tracking line** for today (format in `gps-core`), updating in place.
+   `wake` and the previous line's `sleep` come from the watch when it has the night.
 4. **Recompute intensity** (`gps-core` → Intensity levels) and update `state.json`.
    If the level changed, say what changes tomorrow in one sentence.
 5. **Plan tomorrow**: load `chronoplanner`, plan the next coach day from

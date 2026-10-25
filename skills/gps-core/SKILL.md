@@ -76,6 +76,20 @@ conversation; update the file and say what changed. If `config.json` does not
 exist, the owner has not been onboarded: any ritual other than `gps-onboard` sends
 one short invitation to start onboarding (at most once per day) and stops.
 
+### Apple Watch data (`health-bridge` MCP)
+
+- Last night: `get_timeseries` with `sleep_analysis` for the night window (previous
+  evening 18:00 → today 14:00 local, converted to UTC). Asleep = first asleep-stage
+  start; woke = last asleep-stage end; total = asleep stages (core + deep + REM).
+  Several asleep stretches with ≥60 min awake between them = **split sleep** — name
+  it, it is the owner's known failure pattern. `get_sleep_summary` gives the stage
+  totals per wake date.
+- Training: `get_workouts` for the day.
+- The iPhone uploads in the background on iOS's schedule, so the newest records can
+  lag by hours. Check `get_bridge_status` (latest sync); if last night is missing,
+  say "手表数据还没同步，打开一下 Health Bridge" and use his own report meanwhile.
+- Report only what you need (times, durations); this is health data.
+
 ### Tracking line (`tracking/YYYY-MM.md`)
 
 One line per day, appended or updated in place, never duplicated:
@@ -138,8 +152,11 @@ Streaks are data, not a weapon: report them, never threaten them.
 ## Evidence sources (in order of trust)
 
 1. What the owner says now.
-2. `aw/` desktop summaries (only if `generated_at` is fresh enough for the window).
-3. Phone screen-time the owner reports in the evening (screenshot or numbers).
+2. Apple Watch via the `health-bridge` MCP tools (sleep, workouts, heart rate) — the
+   most reliable source for **when he fell asleep and woke up** and whether he trained.
+   See "Apple Watch data" below.
+3. `aw/` desktop summaries (only if `generated_at` is fresh enough for the window).
+4. Phone screen-time the owner reports in the evening (screenshot or numbers).
 4. Tracking history and plans.
 
 If a source is missing, say so in one short clause and continue; never invent.

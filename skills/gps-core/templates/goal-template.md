@@ -62,5 +62,3 @@ Reference the per-unit ledger/tracking file if the goal has one.>
 - Tracked daily: <what the tracking-line mark means for this goal>
 - Weekly scorecard measure: <how the % is computed>
 
-## Scope changes
-<Dated log. Shrinking scope at a weekly review is allowed; silent drift is not.>

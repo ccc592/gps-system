@@ -42,8 +42,8 @@ Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
 ## Mode B — completion in chat (the owner answers the summons)
 
 1. Walk the draft in 3–5 short exchanges: reconcile `?` days, confirm/contest
-   verdicts, log scope changes in the goal file (shrinking is allowed, silent drift
-   is not), set next week's if-then.
+   verdicts, apply agreed goal changes by rewriting the goal file in place (shrinking
+   is allowed, silent drift is not — `gps-core` rule 5), set next week's if-then.
 2. Goal stalled 2+ weeks → force a decision: recommit (with what change?), shrink,
    or park (park frees a slot only at reset). Use `life-coach` → "Review after
    noncompletion" before deciding.

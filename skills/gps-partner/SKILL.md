@@ -11,8 +11,8 @@ this never existed.) Harkin et al. 2016: effects of progress monitoring are larg
 when progress is made public. This feature IS the system's strongest lever.
 
 Interactive, in chat (Hermes edition). Load `gps-core` first and read
-`~/coach/config.json`. **This fork never contacts the partner.** The owner forwards
-the weekly report himself (e.g. on WeChat); the coach only drafts it.
+`~/coach/config.json`. The owner forwards the weekly
+report to the partner himself (e.g. on WeChat); the coach only drafts it.
 
 ## Steps
 

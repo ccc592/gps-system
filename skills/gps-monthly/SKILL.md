@@ -9,7 +9,7 @@ metadata:
 
 # GPS Checkpoint — every 4 weeks (Hermes edition)
 
-Originally a calendar-monthly rollup; this fork runs it every
+Runs every
 `config.checkpoint_every_weeks` cycle weeks (default 4), right after that Sunday's
 weekly prep. Load `gps-core` first. Read the period's weekly reviews, tracking files,
 scorecard, goal files, and `aw/` summaries if present.

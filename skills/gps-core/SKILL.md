@@ -10,7 +10,7 @@ metadata:
 # GPS Core — operating manual (Hermes edition)
 
 Ali Abdaal's GPS skeleton (Goal → Plan → System), corrected against the research
-(`references/method.md`, `references/science-notes.md`). This fork runs it inside a
+(`references/method.md`, `references/science-notes.md`). It runs inside a
 Hermes profile that talks to one owner over Telegram. Every `gps-*` ritual follows
 these rules. Read `references/method.md` before changing any rule.
 
@@ -96,8 +96,11 @@ evidence sets a mark; never guess `✓`.
    cover the owner's obstacle classes in `profile.md`.
 4. **Process over outcome.** Daily and weekly targets are behaviours the owner fully
    controls (one 90-minute block on X), not results.
-5. **Shrinking is allowed, silent drift is not.** Every scope change is dated in the
-   goal's `## Scope changes`.
+5. **Shrinking is allowed, silent drift is not.** Every change to a goal is said to
+   the owner in chat and applied only with his OK. Then rewrite the file in place:
+   goal, profile, plan and memory text always describe only the current version — no
+   change log, no edit dates, no "was X, now Y", and never restate a replaced rule,
+   number or wrong fact, not even to say it is wrong. The daily backup keeps history.
 6. **Cycle = 12 weeks, checkpoint every 4 weeks.** At a checkpoint the *route* may
    change (milestones, procedure, schedule); the goals do not — that waits for
    `gps-reset` (or the guarded `gps-goal` replace path).

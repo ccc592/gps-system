@@ -43,7 +43,10 @@ these rules. Read `references/method.md` before changing any rule.
 | `state.json` | coaching state: intensity level, streaks, last ritual timestamps |
 | `aw/YYYY-MM-DD.json` | desktop ActivityWatch summaries, one per coach day 04:00–04:00, time at the computer only (pushed every 30 min; see `activitywatch` skill, remote coach mode) |
 
-Dates are absolute (`2026-10-26`), times are 24h local (`Asia/Taipei`). Never
+Dates are absolute (`2026-10-26`), times are 24h local. The owner lives in **China**,
+so the working offset is `Asia/Shanghai` (+08:00, same as `Asia/Taipei`, which the
+scheduler and config use). The host clock is UTC: compute any time you state with
+`TZ=Asia/Shanghai date` — see the `coach-clock` skill. Never
 write relative dates into files.
 
 ### config.json
@@ -123,6 +126,18 @@ evidence sets a mark; never guess `✓`.
    `gps-reset` (or the guarded `gps-goal` replace path).
 7. **The partner never receives anything directly.** The weekly report is drafted
    for the owner, who forwards it on WeChat himself.
+8. **The files are the state. The conversation is not.** Anything the owner says that
+   changes a scheduled decision — he is up, he is late, a block is done or moved — is
+   written into `plans/<coach_day>.json` / `state.json` in the same turn, **before**
+   the reply is written. `coach_tick.py` reads only files: a fact that lives only in
+   the chat makes the next tick phone him with a wrong sentence ("you are an hour
+   late" to a man who has been up since nine). Same rule for the tracking line — fix
+   it the moment he reports, don't park it for the evening review.
+9. **These skills are the owner's, not a museum.** The `gps-*` skills live in a git
+   fork with the owner's own `origin` remote. When a rule in here blocks a real fix,
+   say which rule, what you would change and why — and do the fix in the same turn if
+   he agrees (he usually does). Commit locally; never push without asking. A standing
+   constraint is never a reason to hand the fix back to him unasked.
 
 ## Tone (`config.tone`)
 
@@ -157,7 +172,7 @@ Streaks are data, not a weapon: report them, never threaten them.
    See "Apple Watch data" below.
 3. `aw/` desktop summaries (only if `generated_at` is fresh enough for the window).
 4. Phone screen-time the owner reports in the evening (screenshot or numbers).
-4. Tracking history and plans.
+5. Tracking history and plans.
 
 If a source is missing, say so in one short clause and continue; never invent.
 

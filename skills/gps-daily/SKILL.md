@@ -33,9 +33,11 @@ usually a wrong one sent to his phone.
   `state.json → wake[<coach_day>]`, before writing anything back to him.
   Otherwise `wake-fallback` fires at `wake_planned + 60` and tells a man who has
   been up for two hours that he is an hour late.
-- Same for block progress mentioned in passing ("我先做饭", "这一块做完了"):
-  update that block's `status` / start-end in the plan JSON in the same turn,
-  never deferred to the evening review.
+- Same for block progress mentioned in passing ("我先做饭", "这一块做完了", "现在
+  开始第一个块"): update that block's `status` / start-end in the plan JSON in the
+  same turn, never deferred to the evening review. When a block's times move, edit the
+  matching line in `plans/<coach_day>.md` too and re-sync that one calendar event
+  (`chronoplanner` → Calendar & Output Integrations).
 - Recording costs one small atomic write. Do it first, talk second.
 
 ## Plan files (written by `chronoplanner`)

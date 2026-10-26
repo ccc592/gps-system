@@ -106,6 +106,12 @@ One line, `【开始】`: block title, end time, "手机放远一点". Nothing e
    the block window: minutes at the computer, productive vs distracting minutes,
    minutes away from the computer, and the `top_distracting` sites. Away is not a
    verdict — state it and ask. If stale or missing, say "没有电脑数据".
+   **The summary only knows the apps its categories list.** A study tool that is not
+   on the productive list (SuperMemo, a flashcard app, a PDF reader, a paper notebook)
+   is scored as idle or "other", so a block he finished can look abandoned. Before
+   saying a block was not done, check whether the tool he actually used is classified;
+   ask what he was using instead of concluding, and add the app to the categorizer
+   (`activitywatch` → categories) so the next block is judged on the same basis.
 2. Send `【打卡】` in ≤4 lines: the block, what the desktop data suggests (one line,
    facts), and one question: done / partial / not started?
 3. Do not diagnose yet; a short answer is enough. When he answers (chat turn), mark
@@ -123,7 +129,8 @@ send only the changed part of the day. Log one `note:` for the evening review.
 
 Phase A — the scheduled message (≤6 lines):
 - Today in facts: blocks planned vs done (from the plan JSON + replies), desktop
-  summary for the day (productive hours, top distracting site + minutes).
+  summary for the day (productive hours, top distracting site + minutes — name an app
+  only when its category is trustworthy, see the check-in caveat above).
 - Today's workout from the watch if there was one (type, minutes), one line.
 - If `config.tasks.enabled`: inbox tasks he ticked today (`coach-tasks` → Done), one
   line; mark their plan blocks `done`.

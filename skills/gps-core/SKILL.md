@@ -87,7 +87,18 @@ one short invitation to start onboarding (at most once per day) and stops.
   Several asleep stretches with ≥60 min awake between them = **split sleep** — name
   it, it is the owner's known failure pattern. `get_sleep_summary` gives the stage
   totals per wake date.
-- Training: `get_workouts` for the day.
+- Training: `get_workouts` for the day. **The date arguments are UTC calendar
+  dates with an exclusive end**, so a workout that ends 12:50Z (20:50 local) is
+  invisible to `start=10-25,end=10-26`. Always pass `end_date` = the coach day + 1,
+  and before writing "no workout record", cross-check
+  `get_bridge_status` → `metrics.workout.latest_record_end`. Telling an owner who
+  trained for 85 minutes that the watch has no record is a data error, not a
+  finding.
+- Third-party workout apps reach Health only if the owner enabled their "write to
+  Apple Health" permission. If `get_workouts` is empty day after day while he reports
+going to the gym, say it once and ask him to switch that permission on in that app —
+  record the workout from his report meanwhile. An empty result is missing data, never
+  proof he skipped training.
 - The iPhone uploads in the background on iOS's schedule, so the newest records can
   lag by hours. Check `get_bridge_status` (latest sync); if last night is missing,
   say "手表数据还没同步，打开一下 Health Bridge" and use his own report meanwhile.
@@ -104,6 +115,16 @@ One line per day, appended or updated in place, never duplicated:
 Marks: `✓` done · `½` partial · `✗` planned but not done · `–` not planned today ·
 `?` unknown (reconcile at the weekly review). Only the owner's report or clear
 evidence sets a mark; never guess `✓`.
+
+**Editing the file in place**: never match by the date prefix alone — match the real
+line by its own values (e.g. the `wake HH:MM` in it) and print the line you changed.
+
+Writing it: append the new day's line at the end of the file. To update a line that
+already exists, match the **last** line starting with that date — the file's own header
+carries a sample line that also starts with a real-looking date inside a fenced block,
+so a naive date-prefix `re.sub` / `sed -i` rewrites the example and leaves the real day
+unwritten. After any write, print the file back and confirm two things: the sample line
+in the header is unchanged, and today's line appears exactly once.
 
 ## Hard rules
 
@@ -175,6 +196,13 @@ Streaks are data, not a weapon: report them, never threaten them.
 5. Tracking history and plans.
 
 If a source is missing, say so in one short clause and continue; never invent.
+
+Desktop data cannot see apps it does not classify. Before you tell him a block was not
+done because the desktop summary shows idle or distracting time, ask what he was doing
+in that window: a study tool the ActivityWatch categorizer does not know (SuperMemo and
+similar) counts as distraction by default and can make a finished block look empty. Add
+the app to the categorizer, then judge. His report outranks the desktop summary —
+unclassified seconds are not evidence of slacking.
 
 ## File templates and method
 

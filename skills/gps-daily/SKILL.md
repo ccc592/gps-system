@@ -66,6 +66,12 @@ scheduler and the check-ins read:
 `planned` → `done` / `partial` / `missed` / `moved`. Times after midnight (`00:30`)
 belong to the same coach day.
 
+`status` is terminal — never park a block in an interim state. When he says he is
+starting a block, record `started_at` (and the real start/end times) and leave
+`status: planned`; when he reports back, set `done` / `partial` / `missed`. A block left
+as `in_progress` is invisible to `coach_tick.py` and turns the evening review into an
+unnecessary interrogation ("you never reported this one").
+
 ## Mode: wake — owner says he is up ("起床了", "醒了", "早")
 
 1. Record `wake_actual` (now) in today's plan JSON and in `state.json`. Read last

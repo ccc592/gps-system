@@ -119,6 +119,8 @@ Phase A — the scheduled message (≤6 lines):
 - Today in facts: blocks planned vs done (from the plan JSON + replies), desktop
   summary for the day (productive hours, top distracting site + minutes).
 - Today's workout from the watch if there was one (type, minutes), one line.
+- If `config.tasks.enabled`: inbox tasks he ticked today (`coach-tasks` → Done), one
+  line; mark their plan blocks `done`.
 - Ask for: (1) any block he hasn't reported, (2) phone screen time — a screenshot or
   two numbers (total, top app), (3) one line: what got in the way / what worked,
   (4) anything fixed tomorrow (appointments).
@@ -136,7 +138,7 @@ Phase B — when he answers (chat turn):
    If the level changed, say what changes tomorrow in one sentence.
 5. **Plan tomorrow**: load `chronoplanner`, plan the next coach day from
    `config.day` (current `wake_target`), the goals' process targets, tomorrow's
-   fixed items, intensity level and today's lessons. Write `plans/<tomorrow>.md`
+   fixed items, open inbox tasks (`coach-tasks`), intensity level and today's lessons. Write `plans/<tomorrow>.md`
    and `.json`; sync calendar if enabled.
 6. Reply `【明日计划】`: the blocks with times + lead action per goal, ≤8 lines, and
    one line of honest assessment of today (fact-based, no shaming, no inflated

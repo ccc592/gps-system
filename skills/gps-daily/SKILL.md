@@ -16,6 +16,28 @@ the last 7 lines of `tracking/YYYY-MM.md`.
 **Coach day**: a day runs until 04:00 the next morning. Anything before 04:00
 belongs to the previous date (a 00:40 bedtime is part of yesterday).
 
+**Clock times**: never state a time you have not just computed with
+`TZ=Asia/Shanghai date '+%F %T %a'`. Bare `date` on this host returns UTC — 8 hours
+behind him — and a scheduled delivery carries the time it was *generated*, not the
+time it is read. See the `coach-clock` skill.
+
+## Hard rule — write it down the moment he says it
+
+The scheduler and the check-ins read **only** the files. A fact that lives in the
+conversation does not exist to them, and the message that follows from the gap is
+usually a wrong one sent to his phone.
+
+- **Any** statement that he is up — "起床了", "醒了", "早", "我已经起来了",
+  "我9点就起来了", said anywhere in the conversation, in any wording — is a wake
+  record. Immediately set `wake_actual` in `plans/<coach_day>.json` **and**
+  `state.json → wake[<coach_day>]`, before writing anything back to him.
+  Otherwise `wake-fallback` fires at `wake_planned + 60` and tells a man who has
+  been up for two hours that he is an hour late.
+- Same for block progress mentioned in passing ("我先做饭", "这一块做完了"):
+  update that block's `status` / start-end in the plan JSON in the same turn,
+  never deferred to the evening review.
+- Recording costs one small atomic write. Do it first, talk second.
+
 ## Plan files (written by `chronoplanner`)
 
 `plans/YYYY-MM-DD.md` is the readable plan. `plans/YYYY-MM-DD.json` is what the

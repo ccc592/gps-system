@@ -85,10 +85,10 @@ unnecessary interrogation ("you never reported this one").
    longer fits, drop the lowest-priority shallow block first, never the first deep
    block. Update the calendar events if calendar is enabled (chronoplanner →
    Calendar sync).
-4. Reply `【今日计划】` in ≤8 lines: last night's sleep in one line (watch), wake time
-   vs plan (one fact, no lecture), the
-   blocks with times, the single lead action per goal, one anti-goal reminder for
-   today (e.g. "深度块前 60 分钟不碰短视频"). End with nothing else.
+4. Reply `【今日计划】` in ≤8 lines: open with one line in your own voice that carries
+   last night's sleep (watch) and the wake time vs plan (a remark, not a lecture), then
+   the blocks with times one per line, the single lead action per goal, one anti-goal
+   reminder for today (e.g. "深度块前 60 分钟不碰短视频"). End with nothing else.
 
 ## Mode: wake-fallback (scheduled, owner has not checked in)
 
@@ -112,10 +112,10 @@ One line, `【开始】`: block title, end time, "手机放远一点". Nothing e
    saying a block was not done, check whether the tool he actually used is classified;
    ask what he was using instead of concluding, and add the app to the categorizer
    (`activitywatch` → categories) so the next block is judged on the same basis.
-2. Send `【打卡】` in ≤4 lines: the block, what the desktop data suggests (one line,
-   facts), and one question: done / partial / not started?
+2. Send `【打卡】` in ≤4 lines, in your voice: the block, what the desktop data
+   suggests (one line, facts), and ask how it went — done / partial / not started?
 3. Do not diagnose yet; a short answer is enough. When he answers (chat turn), mark
-   the block `status` in the plan JSON. Not done → one question about what got in
+   the block `status` in the plan JSON. Not done → ask what got in
    the way, then either re-slot the work (Mode: deviation) or note it for the
    evening review.
 
@@ -127,7 +127,7 @@ send only the changed part of the day. Log one `note:` for the evening review.
 
 ## Mode: evening review (scheduled `【晚间复盘】`, finished in chat)
 
-Phase A — the scheduled message (≤6 lines):
+Phase A — the scheduled message (≤6 lines, plain lines in your voice, not a form):
 - Today in facts: blocks planned vs done (from the plan JSON + replies), desktop
   summary for the day (productive hours, top distracting site + minutes — name an app
   only when its category is trustworthy, see the check-in caveat above).
@@ -143,7 +143,7 @@ Phase B — when he answers (chat turn):
    read images, ask for the two numbers instead. Never guess.
 2. **Diagnose misses** with `life-coach` → "Review after noncompletion" order
    (still his goal? task too big/vague? capability? opportunity? did the plan
-   itself create resistance?). One or two questions, not an interrogation. If the
+   itself create resistance?). Ask whatever you need to understand it. If the
    desktop data shows feeds during a block, say it plainly once.
 3. **Write the tracking line** for today (format in `gps-core`), updating in place.
    `wake` and the previous line's `sleep` come from the watch when it has the night.

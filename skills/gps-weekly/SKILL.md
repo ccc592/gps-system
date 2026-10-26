@@ -36,7 +36,8 @@ Week = Monday–Sunday. Cycle week N = weeks since `config.cycle_start` (+1).
    - Wake ramp proposal (see below).
    - **Partner report draft** (if `config.partner.name` is set), marked
      `PENDING OWNER APPROVAL`.
-4. **Reply with the summons** (this is the delivered message, ≤6 lines):
+4. **Reply with the summons** (this is the delivered message, ≤6 lines, in your voice:
+   one plain line on how the week went, then the numbers compact like this):
    `【周复盘】W<nn>: g1 71% · g2 40% SLIPPING · 深度 9.0h(上周 6.0h) · 手机日均 3.1h · anti: 2 次晚睡。回我开始复盘，10 分钟。`
 5. Nothing goes to the partner in Mode A, ever.
 
